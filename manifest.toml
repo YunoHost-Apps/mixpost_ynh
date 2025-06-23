@@ -1,0 +1,69 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/main/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "mixpost"
+name = "Mixpost"
+description.en = "Schedule, publish, and manage your social media content on your server"
+description.fr = "Planifiez, publiez et gérez le contenu de vos médias sociaux sur votre serveur"
+
+version = "2.3.0~ynh1"
+
+maintainers = ["eric_G"]
+
+[upstream]
+license = "MIT"
+website = "https://mixpost.app/"
+admindoc = "https://docs.mixpost.app/lite/installation/manual"
+code = "https://github.com/inovector/mixpost"
+
+[integration]
+yunohost = ">= 12.0.9"
+helpers_version = "2.1"
+architectures = "all"
+multi_instance = true
+
+ldap = false
+
+sso = false
+
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/mixpost"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+[resources]
+
+    [resources.sources]
+
+    [resources.sources.main]
+    url = "https://github.com/inovector/mixpost/archive/refs/tags/v2.3.0.tar.gz"
+    sha256 = "985a81f97ca26c0aa7384a711766e753d6c5689dcc51e61d50b6da0aed064c92"
+
+    autoupdate.strategy = "latest_github_tag"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "mariadb-server, ffmpeg, redis-server, php8.4-curl, php8.4-mysql, php8.4-bcmath, php8.4-gd, php8.4-mbstring, php8.4-redis, php8.4-xml, php8.4-zip, php8.4-intl"
+
+    [resources.database]
+    type = "mysql"
