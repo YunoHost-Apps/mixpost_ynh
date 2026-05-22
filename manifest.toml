@@ -15,7 +15,7 @@ maintainers = ["eric_G"]
 license = "MIT"
 website = "https://mixpost.app/"
 admindoc = "https://docs.mixpost.app/lite/installation/manual"
-code = "https://github.com/inovector/mixpost"
+code = "https://github.com/inovector/MixpostApp"
 
 [integration]
 yunohost = ">= 12.0.9"
