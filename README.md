@@ -26,7 +26,7 @@ Schedule, publish, and manage your social media content on your server
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/mixpost)](https://ci-apps.yunohost.org/ci/apps/mixpost/)
 
-🛠️ Upstream Mixpost repository: <https://github.com/inovector/mixpost>
+🛠️ Upstream Mixpost repository: <https://github.com/inovector/MixpostApp>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/mixpost_ynh/tree/testing).
 
