@@ -1,1 +1,1 @@
-This is a dummy description of this app features
+Schedule, publish, and manage your social media content on your server

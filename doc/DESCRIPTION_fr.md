@@ -1,1 +1,1 @@
-Ceci est une fausse description des fonctionalités de l'app
+Planifiez, publiez et gérez le contenu de vos médias sociaux sur votre serveur

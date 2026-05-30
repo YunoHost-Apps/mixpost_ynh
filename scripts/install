@@ -13,6 +13,7 @@ source /usr/share/yunohost/helpers
 
 key=$(ynh_string_random --length=32)
 
+ynh_app_setting_set --key=app_key --value=$key
 ynh_app_setting_set --key=php_upload_max_filesize --value=50M
 ynh_app_setting_set --key=php_post_max_size --value=50M
 
@@ -22,9 +23,7 @@ ynh_app_setting_set --key=php_post_max_size --value=50M
 ynh_script_progression "Setting up source files..."
 
 # Download, check integrity, uncompress and patch the source from manifest.toml
-#ynh_setup_source --dest_dir="$install_dir"
-
-#mkdir "$install_dir"
+ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
 # APP INITIAL CONFIGURATION
@@ -56,10 +55,8 @@ ynh_config_add --template="cron" --destination="/etc/cron.d/$app"
 #=================================================
 ynh_script_progression "Installing $app with Composer..."
 
-#ynh_composer_install
-#ynh_composer_exec install --no-dev
-
 ynh_composer_exec create-project inovector/MixpostApp
+ynh_composer_exec install --no-dev
 
 chmod -R 755 $install_dir/public
 chmod -R 775 $install_dir/storage
@@ -71,15 +68,21 @@ chmod -R 775 $install_dir/bootstrap/cache
 ynh_script_progression "Install $app"
 
 pushd $install_dir
+	# See https://github.com/inovector/MixpostApp/issues/4
+	php$php_version artisan vendor:publish --all --quiet
 	php$php_version artisan optimize
-	php$php_version artisan migrate
-	php$php_version artisan mixpost-auth:create
+	php$php_version artisan migrate --no-interaction --force
+	php$php_version artisan mixpost-auth:create --admin --quiet
 popd
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
+
+# Create log dir for systemd
+mkdir -p "/var/log/$app"
+touch "/var/log/$app/$app.log"
 
 # Start a systemd service
 ynh_systemctl --service="$app" --action="start"

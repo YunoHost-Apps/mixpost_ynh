@@ -7,7 +7,7 @@ name = "Mixpost"
 description.en = "Schedule, publish, and manage your social media content on your server"
 description.fr = "Planifiez, publiez et gérez le contenu de vos médias sociaux sur votre serveur"
 
-version = "2.3.0~ynh1"
+version = "2.1.0~ynh1"
 
 maintainers = ["eric_G"]
 
@@ -15,7 +15,7 @@ maintainers = ["eric_G"]
 license = "MIT"
 website = "https://mixpost.app/"
 admindoc = "https://docs.mixpost.app/lite/installation/manual"
-code = "https://github.com/inovector/mixpost"
+code = "https://github.com/inovector/MixpostApp"
 
 [integration]
 yunohost = ">= 12.0.9"
@@ -35,9 +35,9 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    [install.path]
-    type = "path"
-    default = "/mixpost"
+    #[install.path]
+    #type = "path"
+    #default = "/mixpost"
 
     [install.init_main_permission]
     type = "group"
@@ -48,8 +48,8 @@ ram.runtime = "50M"
     [resources.sources]
 
     [resources.sources.main]
-    url = "https://github.com/inovector/mixpost/archive/refs/tags/v2.3.0.tar.gz"
-    sha256 = "985a81f97ca26c0aa7384a711766e753d6c5689dcc51e61d50b6da0aed064c92"
+    url = "https://github.com/inovector/MixpostApp/archive/refs/tags/v2.1.0.tar.gz"
+    sha256 = "82f25550ef1b992c6e0452af7a8af978ccb19d427f7a9806c5899fc3832de40e"
 
     autoupdate.strategy = "latest_github_tag"
 
@@ -66,3 +66,6 @@ ram.runtime = "50M"
 
     [resources.database]
     type = "mysql"
+
+    [resources.composer]
+    version = "2.9.8"

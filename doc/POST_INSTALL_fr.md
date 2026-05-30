@@ -1,0 +1,3 @@
+- Mixpost est désormais accessible sur https://__DOMAIN____PATH__
+- Le nom d'utilisateur administrateur est : admine
+- Le mot de passe administrateur est : changeme
