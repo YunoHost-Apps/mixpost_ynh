@@ -68,6 +68,8 @@ chmod -R 775 $install_dir/bootstrap/cache
 ynh_script_progression "Install $app"
 
 pushd $install_dir
+	# See https://github.com/inovector/MixpostApp/issues/4
+	php$php_version artisan vendor:publish --all --quiet
 	php$php_version artisan optimize
 	php$php_version artisan migrate --no-interaction --force
 	php$php_version artisan mixpost-auth:create --admin --quiet
