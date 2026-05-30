@@ -78,6 +78,10 @@ popd
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
+# Create log dir for systemd
+mkdir -p "/var/log/$app"
+touch "/var/log/$app/$app.log"
+
 # Start a systemd service
 ynh_systemctl --service="$app" --action="start"
 
