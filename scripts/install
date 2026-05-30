@@ -55,8 +55,8 @@ ynh_config_add --template="cron" --destination="/etc/cron.d/$app"
 #=================================================
 ynh_script_progression "Installing $app with Composer..."
 
-#ynh_composer_exec create-project inovector/MixpostApp
-ynh_composer_exec install --no-dev
+ynh_composer_exec create-project inovector/MixpostApp
+#ynh_composer_exec install --no-dev
 
 chmod -R 755 $install_dir/public
 chmod -R 775 $install_dir/storage
