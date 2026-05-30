@@ -70,7 +70,7 @@ ynh_script_progression "Install $app"
 pushd $install_dir
 	php$php_version artisan optimize
 	php$php_version artisan migrate --no-interaction --force
-	#php$php_version artisan mixpost-auth:create
+	php$php_version artisan mixpost-auth:create --admin --quiet
 popd
 
 #=================================================
