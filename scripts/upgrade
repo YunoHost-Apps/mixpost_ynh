@@ -19,6 +19,7 @@ ynh_systemctl --service="$app" --action="stop"
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
 
+key=$(ynh_app_setting_get --key=app_key)
 ynh_app_setting_set_default --key=php_upload_max_filesize --value=50M
 ynh_app_setting_set_default --key=php_post_max_size --value=50M
 
@@ -54,7 +55,6 @@ yunohost service add "$app" --description="Self-hosted social media management s
 #=================================================
 ynh_script_progression "Installing $app with Composer..."
 
-ynh_composer_install
 ynh_composer_exec install --no-dev
 
 #=================================================
@@ -64,8 +64,8 @@ ynh_script_progression "Install $app"
 
 pushd $install_dir
 	php$php_version artisan optimize
-	php$php_version artisan migrate
-	php$php_version artisan mixpost-auth:create
+	php$php_version artisan migrate --no-interaction --force
+	#php$php_version artisan mixpost-auth:create
 popd
 
 #=================================================
