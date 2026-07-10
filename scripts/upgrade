@@ -22,6 +22,7 @@ ynh_script_progression "Ensuring downward compatibility..."
 key=$(ynh_app_setting_get --key=app_key)
 ynh_app_setting_set_default --key=php_upload_max_filesize --value=50M
 ynh_app_setting_set_default --key=php_post_max_size --value=50M
+smtp_host=$(cat /etc/yunohost/current_host)
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
