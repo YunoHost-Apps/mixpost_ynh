@@ -1,3 +1,4 @@
 - Mixpost can now be accessed at https://__DOMAIN____PATH__
-- The admin username is: admin
+- The admin username is: admin  
+- The admin email is: `admin@example.com`  
 - The admin password is: changeme
