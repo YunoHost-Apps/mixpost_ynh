@@ -35,10 +35,6 @@ ram.runtime = "50M"
     [install.domain]
     type = "domain"
 
-    #[install.path]
-    #type = "path"
-    #default = "/mixpost"
-
     [install.init_main_permission]
     type = "group"
     default = "visitors"
@@ -63,7 +59,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "mariadb-server, ffmpeg, redis-server, php8.4-curl, php8.4-mysql, php8.4-bcmath, php8.4-gd, php8.4-mbstring, php8.4-redis, php8.4-xml, php8.4-zip, php8.4-intl"
+    packages = "mariadb-server, ffmpeg, redis-server, php8.5-curl, php8.5-mysql, php8.5-bcmath, php8.5-gd, php8.5-mbstring, php8.5-redis, php8.5-xml, php8.5-zip, php8.5-intl"
 
     [resources.database]
     type = "mysql"
